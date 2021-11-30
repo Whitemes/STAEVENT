@@ -1,19 +1,28 @@
 <?php
     session_start();
-    include "view/entete.php";
+    require 'controller/Controlleur.php';
     if(isset($_SESSION['connect'])){
-        include "view/nav2.php";
-        include "view/contenu/bienvenue.php";
-    }
-    if(isset($_GET['ctl'])){
-        switch($_GET['ctl']){
-            case 'connexion':
-            include 'controller/ctl.php';
-            break;
+        if(isset($_GET['nav'])){
+            switch($_GET['nav']){
+                case 'Nav':
+                    include 'controller/ControlleurNavigation.php';
+                    break;
+                case 'Evenement':
+                    include 'controller/ControlleurEvenement.php';
+                    break;
+            }
+        }else{
+            accueil();
         }
     }
-    if(!isset($_SESSION['connect'])){
-        include "view/contenu/form.php";
+    if(isset($_GET['ctl'])){
+        include 'controller/ControlleurAuthentification.php';
     }
-    include "view/footer.php";
+    if(!isset($_SESSION['connect'])){
+        if(isset($_SESSION['erreur'])){
+            rejet();
+        }else{
+            authentification();
+        } 
+    }
 ?>
