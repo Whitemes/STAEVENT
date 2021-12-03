@@ -1,6 +1,6 @@
 <?php 
 include "view/template/header.php";
-include "view/template/nav2.php";
+include "view/template/nav".$_SESSION['status'].".php";
 ?>
 <div class="limiter">
     <div class="container-login100" style="background-image: url('view/images/bg-01.jpg');">
@@ -14,4 +14,5 @@ include "view/template/nav2.php";
 </div>
 <?php 
 include "view/template/footer.php";
+echo ($_SESSION['status']);
 ?>

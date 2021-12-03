@@ -1,6 +1,6 @@
 <?php
-
-    function authentification()
+    //Vues 
+    function formulaire_auth()
     {
         require 'view/contenu/formulaire.php';
     }
@@ -20,4 +20,30 @@
         require 'view/contenu/apropos.php';
     }
 
+    //Vues evenements
+    function ajout()
+    {
+        require 'view/contenu/ajoutEvenement.php';
+    }
+
+    function lister()
+    {
+        require 'view/contenu/listeEvenement.php';
+    }
+
+    //Appels du ControlleurNavigation
+    function authentification()
+    {
+        require 'controller/ControlleurAuthentification.php';
+    }
+
+    function evenement()
+    {
+        require 'controller/ControlleurEvenement.php';
+    }
+
+    function navigation()
+    {
+        require 'controller/ControlleurNavigation.php';
+    }
 ?>
